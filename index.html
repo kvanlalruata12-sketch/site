@@ -1,0 +1,1229 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Premium SEO Meta Tags -->
+    <title>Maria's Cleaning Services | Premium House Cleaning Miami, FL</title>
+    <meta name="description" content="Experience professional, premium residential cleaning in Miami. Trusted, family-oriented, and detail-obsessed cleaning services for luxury homes, condos, and apartments.">
+    <meta name="keywords" content="House Cleaning Miami, Residential Cleaning Miami, Professional Cleaning Services Miami, Deep Cleaning Miami, Apartment Cleaning Miami, Condo Cleaning Miami, Recurring Cleaning Miami">
+    <link rel="canonical" href="https://mariascleaningservicesmiami.com">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Maria's Cleaning Services | Premium Residential Cleaning in Miami">
+    <meta property="og:description" content="Spotless homes, reliable service, and professional care in Miami. Book your custom cleaning plan today.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=1200&h=630&q=80">
+    <meta property="og:url" content="https://mariascleaningservicesmiami.com">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Maria's Cleaning Services | Premium House Cleaning Miami">
+    <meta name="twitter:description" content="Detail-oriented residential cleaning services in Miami. Trusted & reliable.">
+    <meta name="twitter:image" content="https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=1200&h=630&q=80">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            DEFAULT: '#4CAF50',
+                            light: '#E8F5E9',
+                            dark: '#2E7D32',
+                        },
+                        neutral: {
+                            warm: '#FAF9F6',
+                            clay: '#F4F1EA',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom Style Rules for Fine Interactions -->
+    <style>
+        .glass {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+        }
+        
+        .glass-dark {
+            background: rgba(15, 15, 15, 0.7);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        /* Before/After Drag Slider styles */
+        .slider-container {
+            position: relative;
+            overflow: hidden;
+            user-select: none;
+        }
+
+        .slider-image {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            pointer-events: none;
+        }
+
+        .slider-before {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .slider-range {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            cursor: ew-resize;
+            z-index: 30;
+        }
+
+        .slider-handle {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background-color: white;
+            z-index: 20;
+            pointer-events: none;
+            box-shadow: 0 0 10px rgba(0,0,0,0.3);
+        }
+
+        .slider-button {
+            position: absolute;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 44px;
+            height: 44px;
+            background-color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+            pointer-events: none;
+            z-index: 25;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #FAF9F6;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #D4D1C9;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #A8A59E;
+        }
+
+        /* Fade-in & reveal styles */
+        .reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Float background particles */
+        @keyframes float-particle {
+            0%, 100% { transform: translateY(0px) translateX(0px); opacity: 0.2; }
+            50% { transform: translateY(-20px) translateX(10px); opacity: 0.6; }
+        }
+        .particle {
+            animation: float-particle 6s ease-in-out infinite;
+        }
+    </style>
+
+    <!-- Structured Local Business Data for SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "HomeAndConstructionBusiness",
+      "name": "Maria's Cleaning Services",
+      "image": "https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=800&q=80",
+      "@id": "https://mariascleaningservicesmiami.com",
+      "url": "https://mariascleaningservicesmiami.com",
+      "telephone": "+17862629666",
+      "priceRange": "$$",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "",
+        "addressLocality": "Miami",
+        "addressRegion": "FL",
+        "postalCode": "",
+        "addressCountry": "US"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 25.7617,
+        "longitude": -80.1918
+      },
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday",
+          "Sunday"
+        ],
+        "opens": "07:00",
+        "closes": "22:00"
+      }
+    }
+    </script>
+</head>
+<body class="bg-neutral-warm text-neutral-800 antialiased overflow-x-hidden selection:bg-brand selection:text-white">
+
+    <!-- Header / Navigation -->
+    <header class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 px-6 py-4" id="main-header">
+        <div class="max-w-7xl mx-auto flex items-center justify-between glass rounded-full px-6 py-3 transition-all duration-300 shadow-sm">
+            <!-- Brand Logo -->
+            <a href="#" class="flex items-center space-x-2.5">
+                <div class="w-9 h-9 bg-brand rounded-full flex items-center justify-center text-white font-semibold text-lg shadow-sm">
+                    M
+                </div>
+                <span class="font-bold text-lg tracking-tight text-neutral-900">Maria's <span class="text-brand font-medium">Cleaning</span></span>
+            </a>
+
+            <!-- Desktop Nav -->
+            <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-neutral-600">
+                <a href="#about" class="hover:text-neutral-900 transition-colors">About</a>
+                <a href="#services" class="hover:text-neutral-900 transition-colors">Services</a>
+                <a href="#before-after" class="hover:text-neutral-900 transition-colors">Results</a>
+                <a href="#process" class="hover:text-neutral-900 transition-colors">How It Works</a>
+                <a href="#testimonials" class="hover:text-neutral-900 transition-colors">Testimonials</a>
+                <a href="#faq" class="hover:text-neutral-900 transition-colors">FAQ</a>
+            </nav>
+
+            <!-- CTA Actions -->
+            <div class="hidden md:flex items-center space-x-4">
+                <a href="tel:+17862629666" class="text-sm font-semibold text-neutral-900 hover:text-brand transition-colors flex items-center gap-1.5">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.94.725l.548 2.2a1 1 0 01-.321.988l-1.305.98a10.582 10.582 0 004.872 4.872l.98-1.305a1 1 0 01.988-.321l2.2.548a1 1 0 01.725.94V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+                    (786) 262-9666
+                </a>
+                <button onclick="openBookingModal()" class="bg-neutral-900 text-white hover:bg-brand text-xs font-semibold px-5 py-2.5 rounded-full transition-all shadow-sm">
+                    Book a Cleaning
+                </button>
+            </div>
+
+            <!-- Mobile Menu Toggle -->
+            <button class="md:hidden p-1 text-neutral-800 focus:outline-none" id="mobile-menu-toggle" aria-label="Toggle menu">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" id="menu-icon">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"/>
+                </svg>
+            </button>
+        </div>
+
+        <!-- Mobile Drawer -->
+        <div class="hidden md:hidden mt-2 mx-auto max-w-sm glass rounded-2xl p-6 shadow-xl flex flex-col space-y-4 text-center" id="mobile-menu">
+            <a href="#about" class="text-neutral-700 hover:text-brand font-medium py-1">About</a>
+            <a href="#services" class="text-neutral-700 hover:text-brand font-medium py-1">Services</a>
+            <a href="#before-after" class="text-neutral-700 hover:text-brand font-medium py-1">Results</a>
+            <a href="#process" class="text-neutral-700 hover:text-brand font-medium py-1">How It Works</a>
+            <a href="#faq" class="text-neutral-700 hover:text-brand font-medium py-1">FAQ</a>
+            <hr class="border-neutral-200">
+            <a href="tel:+17862629666" class="text-brand font-semibold py-1 block">(786) 262-9666</a>
+            <button onclick="openBookingModal()" class="w-full bg-neutral-900 text-white py-3 rounded-xl font-semibold">Book a Cleaning</button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center justify-center overflow-hidden pt-24 pb-12 px-6">
+        <!-- Sunlit Luxury Room Background Image (Someone cleaning) -->
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=1920&q=80" alt="Professional cleaner detailing a bright kitchen counter with a spray" class="w-full h-full object-cover brightness-[0.88]">
+            <!-- Subtle gradient overlays to ensure text remains highly legible -->
+            <div class="absolute inset-0 bg-gradient-to-b from-neutral-warm/80 via-neutral-warm/50 to-neutral-warm/95"></div>
+            <div class="absolute inset-0 bg-black/5"></div>
+        </div>
+
+        <!-- Floating Animated Particles (Sunlight dust effect) -->
+        <div class="absolute inset-0 pointer-events-none z-10 overflow-hidden">
+            <div class="absolute w-2 h-2 rounded-full bg-white opacity-40 top-1/4 left-1/3 particle" style="animation-delay: 0s;"></div>
+            <div class="absolute w-3.5 h-3.5 rounded-full bg-white opacity-30 top-1/2 left-2/3 particle" style="animation-delay: 2s;"></div>
+            <div class="absolute w-2 h-2 rounded-full bg-white opacity-50 top-2/3 left-1/4 particle" style="animation-delay: 4s;"></div>
+        </div>
+
+        <div class="relative z-20 max-w-4xl mx-auto w-full text-center flex flex-col items-center justify-center space-y-6">
+            <!-- Centered Header Tag -->
+            <div class="inline-flex items-center space-x-2 bg-white/90 backdrop-blur-sm py-1.5 px-4 rounded-full border border-white/60 shadow-sm">
+                <span class="w-2 h-2 rounded-full bg-brand animate-ping"></span>
+                <span class="text-xs font-bold tracking-widest text-neutral-800 uppercase">TRUSTED MIAMI CLEANING SPECIALISTS</span>
+            </div>
+            
+            <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold text-neutral-900 tracking-tight leading-[1.08]">
+                A Cleaner Home.<br><span class="text-brand">A Better Life.</span>
+            </h1>
+            
+            <p class="text-lg md:text-xl text-neutral-800 max-w-3xl font-light leading-relaxed">
+                Professional residential cleaning services in Miami delivering spotless homes with dependable service and attention to every detail.
+            </p>
+
+            <!-- Action Button Centered Stack -->
+            <div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-center space-y-3 sm:space-y-0 sm:space-x-4 pt-4 w-full max-w-md">
+                <button onclick="openBookingModal()" class="w-full sm:w-auto bg-neutral-900 hover:bg-brand text-white font-bold px-8 py-4 rounded-full transition-all duration-300 shadow-md transform hover:-translate-y-0.5 whitespace-nowrap">
+                    Book a Cleaning
+                </button>
+                <a href="tel:+17862629666" class="w-full sm:w-auto glass text-neutral-900 hover:bg-neutral-900 hover:text-white font-bold px-8 py-4 rounded-full transition-all duration-300 flex items-center justify-center gap-2 whitespace-nowrap">
+                    <svg class="w-5 h-5 text-brand" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.94.725l.548 2.2a1 1 0 01-.321.988l-1.305.98a10.582 10.582 0 004.872 4.872l.98-1.305a1 1 0 01.988-.321l2.2.548a1 1 0 01.725.94V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+                    Call (786) 262-9666
+                </a>
+            </div>
+        </div>
+
+        <!-- Scrolling indicator animation -->
+        <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center space-y-2 pointer-events-none opacity-60">
+            <span class="text-[10px] tracking-widest text-neutral-500 uppercase font-bold">Scroll to Discover</span>
+            <div class="w-5 h-8 border-2 border-neutral-400 rounded-full flex justify-center p-1">
+                <div class="w-1 h-2 bg-neutral-600 rounded-full animate-bounce"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Bar -->
+    <section class="py-12 bg-white border-y border-neutral-100 relative z-30">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-2 md:grid-cols-5 gap-8 text-center">
+                <div class="space-y-1">
+                    <p class="text-3xl font-bold text-neutral-900 tracking-tight">100%</p>
+                    <p class="text-xs font-semibold text-neutral-500 uppercase tracking-wider">Satisfaction Guarantee</p>
+                </div>
+                <div class="space-y-1">
+                    <p class="text-3xl font-bold text-neutral-900 tracking-tight">Reliable</p>
+                    <p class="text-xs font-semibold text-neutral-500 uppercase tracking-wider">Every Single Appointment</p>
+                </div>
+                <div class="space-y-1">
+                    <p class="text-3xl font-bold text-brand tracking-tight">Professional</p>
+                    <p class="text-xs font-semibold text-neutral-500 uppercase tracking-wider">Trained Specialists</p>
+                </div>
+                <div class="space-y-1">
+                    <p class="text-3xl font-bold text-neutral-900 tracking-tight">Miami</p>
+                    <p class="text-xs font-semibold text-neutral-500 uppercase tracking-wider">Locally Owned & Trusted</p>
+                </div>
+                <div class="space-y-1 col-span-2 md:col-span-1">
+                    <p class="text-3xl font-bold text-neutral-900 tracking-tight">Latino-Owned</p>
+                    <p class="text-xs font-semibold text-neutral-500 uppercase tracking-wider">Family Oriented</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section class="py-24 bg-neutral-warm relative" id="why-choose-us">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                <h2 class="text-xs font-bold text-brand uppercase tracking-widest">The Standard We Keep</h2>
+                <p class="text-4xl font-bold text-neutral-900 tracking-tight">Why Discerning Miami Homeowners Choose Maria's</p>
+                <div class="h-0.5 w-12 bg-brand mx-auto"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="bg-white p-8 rounded-3xl border border-neutral-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between">
+                    <div class="space-y-4">
+                        <div class="w-12 h-12 bg-brand-light text-brand rounded-2xl flex items-center justify-center">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-neutral-900">Attention to Detail</h3>
+                        <p class="text-sm text-neutral-600 leading-relaxed">We clean corners that other services ignore. No baseboard left untouched, no surface unpolished.</p>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="bg-white p-8 rounded-3xl border border-neutral-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between">
+                    <div class="space-y-4">
+                        <div class="w-12 h-12 bg-brand-light text-brand rounded-2xl flex items-center justify-center">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-neutral-900">Reliable Scheduling</h3>
+                        <p class="text-sm text-neutral-600 leading-relaxed">Punctuality is our bond. We arrive on schedule with fully prepared experts, respecting your time.</p>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="bg-white p-8 rounded-3xl border border-neutral-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between">
+                    <div class="space-y-4">
+                        <div class="w-12 h-12 bg-brand-light text-brand rounded-2xl flex items-center justify-center">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-neutral-900">Friendly Professionals</h3>
+                        <p class="text-sm text-neutral-600 leading-relaxed">Our family-oriented team handles your private home environment with kindness and deep-seated hospitality.</p>
+                    </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="bg-white p-8 rounded-3xl border border-neutral-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between">
+                    <div class="space-y-4">
+                        <div class="w-12 h-12 bg-brand-light text-brand rounded-2xl flex items-center justify-center">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-neutral-900">Safe Practices</h3>
+                        <p class="text-sm text-neutral-600 leading-relaxed">We employ meticulous methodologies and high-grade safe supplies to protect pets, children, and fragile finishes.</p>
+                    </div>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="bg-white p-8 rounded-3xl border border-neutral-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between">
+                    <div class="space-y-4">
+                        <div class="w-12 h-12 bg-brand-light text-brand rounded-2xl flex items-center justify-center">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-neutral-900">Flexible Appointments</h3>
+                        <p class="text-sm text-neutral-600 leading-relaxed">Book daily, weekly, biweekly, monthly, or on-demand cleanings. We customize plans around your routines.</p>
+                    </div>
+                </div>
+
+                <!-- Card 6 -->
+                <div class="bg-white p-8 rounded-3xl border border-neutral-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between">
+                    <div class="space-y-4">
+                        <div class="w-12 h-12 bg-brand-light text-brand rounded-2xl flex items-center justify-center">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-neutral-900">Affordable & Transparent</h3>
+                        <p class="text-sm text-neutral-600 leading-relaxed">No confusing quotes. Get fair, upfront, transparent pricing suited perfectly to the size of your property.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section (Storytelling) -->
+    <section class="py-24 bg-white" id="about">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+            <div class="lg:col-span-6 relative">
+                <div class="rounded-3xl overflow-hidden shadow-2xl relative aspect-[4/3] group">
+                    <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1000&q=80" alt="Freshly cleaned minimal room" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                </div>
+                <div class="absolute -bottom-6 -right-6 glass p-6 rounded-2xl shadow-lg max-w-xs border border-white/60">
+                    <p class="text-xs font-semibold text-neutral-500 uppercase tracking-wide">Family Owned & Operated</p>
+                    <p class="text-md font-bold text-neutral-900 mt-1">"Every home deserves to feel fresh, organized, and welcoming."</p>
+                </div>
+            </div>
+
+            <div class="lg:col-span-6 space-y-6">
+                <h2 class="text-xs font-bold text-brand uppercase tracking-widest">Our Story</h2>
+                <h3 class="text-4xl font-bold text-neutral-900 tracking-tight leading-tight">Crafting Clean Sanctuaries for Miami Families</h3>
+                <p class="text-base text-neutral-600 leading-relaxed font-light">
+                    At Maria's Cleaning Services, we look beyond the dust. We believe your home is your sanctuary, a quiet retreat where memory is created. Because your daily schedule demands so much, we exist to deliver absolute tranquility in the shape of immaculate rooms.
+                </p>
+                <p class="text-base text-neutral-600 leading-relaxed font-light">
+                    From expansive single-family homes and luxury high-rise condos to urban apartments across Miami, our professionals deliver reliable, detailed, and completely customized services. We treat your property with the same gentle care we show our own family.
+                </p>
+                
+                <div class="pt-4 flex items-center space-x-6">
+                    <div class="flex flex-col">
+                        <span class="text-xl font-bold text-neutral-900">786-262-9666</span>
+                        <span class="text-xs text-neutral-400">Direct Contact Line</span>
+                    </div>
+                    <div class="h-8 w-[1px] bg-neutral-200"></div>
+                    <div class="flex flex-col">
+                        <span class="text-xl font-bold text-neutral-900">Open Daily</span>
+                        <span class="text-xs text-neutral-400">Until 10 PM</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="py-24 bg-neutral-warm" id="services">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center max-w-2xl mx-auto mb-16 space-y-4">
+                <h2 class="text-xs font-bold text-brand uppercase tracking-widest">Our Offerings</h2>
+                <p class="text-4xl font-bold text-neutral-900 tracking-tight">Our Precision Cleaning Services</p>
+                <p class="text-sm text-neutral-500 font-light">Click on any card to view estimated durations, recommended frequency, and unique details.</p>
+                <div class="h-0.5 w-12 bg-brand mx-auto"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service Card 1 -->
+                <button onclick="openServiceModal('Residential Cleaning', 'Perfect for busy households looking for consistency. Keep your home systematically pristine.', '2.5 - 4 Hours', 'Weekly or Biweekly', 'Vacuuming, dusting, mopping, trash removal, and basic organization for all standard living spaces.')" class="bg-white p-8 rounded-3xl border border-neutral-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 text-left flex flex-col justify-between h-72">
+                    <div class="space-y-4">
+                        <div class="w-11 h-11 bg-brand-light text-brand rounded-xl flex items-center justify-center">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+                        </div>
+                        <h3 class="text-lg font-bold text-neutral-900">Residential Cleaning</h3>
+                        <p class="text-xs text-neutral-500 line-clamp-3">General comprehensive cleaning designed to preserve the standard health, shine, and comfort of your living spaces.</p>
+                    </div>
+                    <span class="text-xs font-bold text-brand flex items-center gap-1 mt-4">View details <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></span>
+                </button>
+
+                <!-- Service Card 2 -->
+                <button onclick="openServiceModal('Deep Cleaning', 'An exhaustive detailing process designed to refresh homes from ground-up, removing long-standing dirt and allergens.', '4 - 7 Hours', 'Every 3 to 6 Months', 'Intense baseboard scrub, kitchen appliances interior & exterior deep scrub, inside cabinets, door frames, vent dusting, light fixtures, and comprehensive tile sanitizing.')" class="bg-white p-8 rounded-3xl border border-neutral-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 text-left flex flex-col justify-between h-72">
+                    <div class="space-y-4">
+                        <div class="w-11 h-11 bg-brand-light text-brand rounded-xl flex items-center justify-center">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>
+                        </div>
+                        <h3 class="text-lg font-bold text-neutral-900">Deep Cleaning</h3>
+                        <p class="text-xs text-neutral-500 line-clamp-3">An absolute refresh targeting hard-to-reach dust, baseboards, door frames, and appliances.</p>
+                    </div>
+                    <span class="text-xs font-bold text-brand flex items-center gap-1 mt-4">View details <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></span>
+                </button>
+
+                <!-- Service Card 3 -->
+                <button onclick="openServiceModal('Move-In Cleaning', 'Prepare your new residence for seamless, safe, and hygienic occupancy prior to furniture arrival.', '5 - 8 Hours', 'One-time move', 'Meticulous sanitization of all empty closets, shelves, drawers, disinfection of refrigerator & stove interiors, scrubbing bathrooms, walls, and deep vacuuming.')" class="bg-white p-8 rounded-3xl border border-neutral-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 text-left flex flex-col justify-between h-72">
+                    <div class="space-y-4">
+                        <div class="w-11 h-11 bg-brand-light text-brand rounded-xl flex items-center justify-center">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 4H6a2 2 0 00-2 2v12a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-2m-4-1v8m0 0l3-3m-3 3L9 8m-5 5h2.586a1 1 0 01.707.293l2.414 2.414a1 1 0 00.707.293h3.172a1 1 0 00.707-.293l2.414-2.414a1 1 0 01.707-.293H20"/></svg>
+                        </div>
+                        <h3 class="text-lg font-bold text-neutral-900">Move-In Cleaning</h3>
+                        <p class="text-xs text-neutral-500 line-clamp-3">Start with a perfectly clean slate. Comprehensive interior scrubbing of empty homes before move-in day.</p>
+                    </div>
+                    <span class="text-xs font-bold text-brand flex items-center gap-1 mt-4">View details <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></span>
+                </button>
+
+                <!-- Service Card 4 -->
+                <button onclick="openServiceModal('Move-Out Cleaning', 'Ensure you retrieve your security deposit or showcase the property perfectly for sale.', '5 - 8 Hours', 'One-time move', 'Deep sanitization of empty properties, detailing inside drawers and appliance cleaning. Designed to align with Miami landlord checklists.')" class="bg-white p-8 rounded-3xl border border-neutral-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 text-left flex flex-col justify-between h-72">
+                    <div class="space-y-4">
+                        <div class="w-11 h-11 bg-brand-light text-brand rounded-xl flex items-center justify-center">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"/></svg>
+                        </div>
+                        <h3 class="text-lg font-bold text-neutral-900">Move-Out Cleaning</h3>
+                        <p class="text-xs text-neutral-500 line-clamp-3">A thorough, checkout-ready sanitization of your property following local property management guidelines.</p>
+                    </div>
+                    <span class="text-xs font-bold text-brand flex items-center gap-1 mt-4">View details <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></span>
+                </button>
+
+                <!-- Service Card 5 -->
+                <button onclick="openServiceModal('Apartment & Condo Care', 'Custom vertical-living sanitization catering precisely to layout constraints and high-rise rules.', '2 - 3.5 Hours', 'Weekly or Biweekly', 'Living room clean, bedroom bed dressing, mirror polishing, kitchen cleaning, sanitization of shared high-traffic condo doors and vents.')" class="bg-white p-8 rounded-3xl border border-neutral-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 text-left flex flex-col justify-between h-72">
+                    <div class="space-y-4">
+                        <div class="w-11 h-11 bg-brand-light text-brand rounded-xl flex items-center justify-center">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+                        </div>
+                        <h3 class="text-lg font-bold text-neutral-900">Apartment / Condo Cleaning</h3>
+                        <p class="text-xs text-neutral-500 line-clamp-3">Specialized cleaning customized specifically for modern urban apartments and luxury Brickell / beach condos.</p>
+                    </div>
+                    <span class="text-xs font-bold text-brand flex items-center gap-1 mt-4">View details <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></span>
+                </button>
+
+                <!-- Service Card 6 -->
+                <button onclick="openServiceModal('Kitchen & Bath Detail', 'Hyper-focused sanitization targeting the home’s highly active, complex sanitation environments.', '1.5 - 3 Hours', 'Weekly or Biweekly', 'Disinfection of countertops, deep stovetop scrub, inside-microwave wash, backsplashes, sink scouring, tile-grout scrubbing, and deep shower/toilet sanitization.')" class="bg-white p-8 rounded-3xl border border-neutral-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 text-left flex flex-col justify-between h-72">
+                    <div class="space-y-4">
+                        <div class="w-11 h-11 bg-brand-light text-brand rounded-xl flex items-center justify-center">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 4v5h.582m15.356 2A8.001 8.001 0 1121.21 8H17m0 0V5M3 16h3.582M21 16h-3.582"/></svg>
+                        </div>
+                        <h3 class="text-lg font-bold text-neutral-900">Kitchen & Bath Sanitization</h3>
+                        <p class="text-xs text-neutral-500 line-clamp-3">Intense, target-sanitization focused heavily on scrubbing high-touch kitchen surfaces and complete bathroom detailing.</p>
+                    </div>
+                    <span class="text-xs font-bold text-brand flex items-center gap-1 mt-4">View details <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Detailed Service Modal Backdrop -->
+    <div id="service-modal" class="fixed inset-0 bg-neutral-900/40 backdrop-blur-md hidden z-50 flex items-center justify-center p-4 transition-all duration-300">
+        <div class="bg-white max-w-lg w-full rounded-3xl p-8 shadow-2xl relative border border-neutral-100 transform scale-95 opacity-0 transition-all duration-300" id="modal-content">
+            <!-- Close Button -->
+            <button onclick="closeServiceModal()" class="absolute top-5 right-5 text-neutral-400 hover:text-neutral-700 focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+            </button>
+            
+            <div class="space-y-6">
+                <!-- Title -->
+                <h3 id="modal-title" class="text-2xl font-bold text-neutral-900">Residential Cleaning</h3>
+                <!-- Description -->
+                <p id="modal-desc" class="text-sm text-neutral-600 leading-relaxed font-light"></p>
+                
+                <!-- Inclusion Detail -->
+                <div class="bg-neutral-clay p-4 rounded-2xl">
+                    <p class="text-xs font-semibold text-neutral-500 uppercase mb-2">What is Included:</p>
+                    <p id="modal-inclusions" class="text-xs text-neutral-700 leading-relaxed"></p>
+                </div>
+
+                <!-- Parameters Grid -->
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="bg-brand-light p-4 rounded-2xl">
+                        <p class="text-[10px] font-bold text-brand-dark uppercase tracking-wider">Est. Time Required</p>
+                        <p id="modal-time" class="text-sm font-bold text-neutral-900 mt-1"></p>
+                    </div>
+                    <div class="bg-neutral-clay p-4 rounded-2xl">
+                        <p class="text-[10px] font-bold text-neutral-500 uppercase tracking-wider">Recommended Freq.</p>
+                        <p id="modal-freq" class="text-sm font-bold text-neutral-900 mt-1"></p>
+                    </div>
+                </div>
+
+                <!-- Footer CTA -->
+                <div class="pt-4 flex items-center justify-between gap-4">
+                    <a href="tel:+17862629666" class="text-sm font-bold text-neutral-800 hover:text-brand flex items-center gap-1">
+                        Call (786) 262-9666
+                    </a>
+                    <button onclick="switchToBookingModal()" class="bg-neutral-900 text-white text-xs font-bold px-6 py-3.5 rounded-xl hover:bg-brand transition-all">
+                        Book Service
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Dynamic Premium Booking Modal (Triggers customized Client Email construction) -->
+    <div id="booking-modal" class="fixed inset-0 bg-neutral-900/50 backdrop-blur-md hidden z-50 flex items-center justify-center p-4 transition-all duration-300">
+        <div class="bg-white max-w-lg w-full rounded-3xl p-8 shadow-2xl relative border border-neutral-100 transform scale-95 opacity-0 transition-all duration-300" id="booking-modal-content">
+            <!-- Close Button -->
+            <button onclick="closeBookingModal()" class="absolute top-5 right-5 text-neutral-400 hover:text-neutral-700 focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+            </button>
+            
+            <div class="space-y-6">
+                <div>
+                    <h3 class="text-2xl font-bold text-neutral-900">Book Your Spotless Clean</h3>
+                    <p class="text-xs text-neutral-500 mt-1">Submit your details to draft a structured email request directly to the business owner.</p>
+                </div>
+
+                <form id="email-booking-form" class="space-y-4" onsubmit="handleBookingSubmit(event)">
+                    <div>
+                        <label class="block text-xs font-bold text-neutral-500 uppercase tracking-wider mb-1">Full Name</label>
+                        <input type="text" id="book-name" placeholder="Adriana Correa" required class="w-full px-4 py-3 bg-neutral-warm border border-neutral-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand focus:border-transparent text-sm transition-all">
+                    </div>
+                    
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-bold text-neutral-500 uppercase tracking-wider mb-1">Phone Number</label>
+                            <input type="tel" id="book-phone" placeholder="(786) 262-9666" required class="w-full px-4 py-3 bg-neutral-warm border border-neutral-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand focus:border-transparent text-sm transition-all">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-neutral-500 uppercase tracking-wider mb-1">Service Type</label>
+                            <select id="book-service" class="w-full px-4 py-3 bg-neutral-warm border border-neutral-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand focus:border-transparent text-sm text-neutral-700 transition-all">
+                                <option>Residential Cleaning</option>
+                                <option>Deep Cleaning</option>
+                                <option>Move-In Cleaning</option>
+                                <option>Move-Out Cleaning</option>
+                                <option>Apartment & Condo Care</option>
+                                <option>Kitchen & Bath Detail</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-bold text-neutral-500 uppercase tracking-wider mb-1">Home Size (Approx. Sq. Ft.)</label>
+                            <input type="number" id="book-sqft" placeholder="1500" required class="w-full px-4 py-3 bg-neutral-warm border border-neutral-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand focus:border-transparent text-sm transition-all">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-neutral-500 uppercase tracking-wider mb-1">Preferred Date</label>
+                            <input type="date" id="book-date" required class="w-full px-4 py-3 bg-neutral-warm border border-neutral-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand focus:border-transparent text-sm transition-all text-neutral-700">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold text-neutral-500 uppercase tracking-wider mb-1">Special instructions or Notes</label>
+                        <textarea id="book-notes" placeholder="Please focus on the entryway and kitchen tile grout..." rows="3" class="w-full px-4 py-3 bg-neutral-warm border border-neutral-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand focus:border-transparent text-sm transition-all"></textarea>
+                    </div>
+
+                    <button type="submit" class="w-full bg-brand text-white font-bold py-3.5 rounded-xl hover:bg-brand-dark transition-all duration-300 shadow-sm text-sm">
+                        Confirm and Send Email Request
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Before & After Section -->
+    <section class="py-24 bg-white" id="before-after">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+                <!-- Text Detail -->
+                <div class="lg:col-span-5 space-y-6">
+                    <h2 class="text-xs font-bold text-brand uppercase tracking-widest">Visual Evidence</h2>
+                    <h3 class="text-4xl font-bold text-neutral-900 tracking-tight leading-tight">Revitalizing Luxury Spaces</h3>
+                    <p class="text-base text-neutral-600 font-light leading-relaxed">
+                        Slide the cursor to reveal the contrast. Watch how our systematic detailing dissolves clutter and dust, reviving the light, space, and premium textures of Miami residences.
+                    </p>
+                    <div class="flex items-center gap-4 text-xs font-bold text-neutral-600">
+                        <span class="px-3 py-1.5 bg-neutral-clay rounded-full">Left: Before Cleaning</span>
+                        <span class="px-3 py-1.5 bg-brand-light text-brand-dark rounded-full">Right: After Spotless Care</span>
+                    </div>
+                </div>
+
+                <!-- Drag Slider Element -->
+                <div class="lg:col-span-7">
+                    <div class="slider-container aspect-[16/10] rounded-3xl shadow-2xl relative border-4 border-white overflow-hidden">
+                        <!-- After Image (Background) -->
+                        <img class="slider-image absolute inset-0 w-full h-full object-cover" src="https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=1200&q=80" alt="Beautifully styled luxury bedroom fully cleaned by professionals">
+                        
+                        <!-- Before Image (Overlaid clipping box) -->
+                        <div class="slider-before" id="slider-before">
+                            <img class="slider-image absolute inset-0 w-full h-full object-cover brightness-[0.8] saturate-50" src="https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?auto=format&fit=crop&w=1200&q=80" alt="Slightly unorganized desk environment before service">
+                        </div>
+
+                        <!-- Draggable Input Bar -->
+                        <input type="range" min="0" max="100" value="50" class="slider-range" id="slider-range">
+
+                        <!-- Visible slider indicator elements -->
+                        <div class="slider-handle" id="slider-handle"></div>
+                        <div class="slider-button shadow-md" id="slider-button">
+                            <svg class="w-4 h-4 text-neutral-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M8 9l-4 4 4 4m8-8l4 4-4 4"/></svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Timeline -->
+    <section class="py-24 bg-neutral-warm border-y border-neutral-100" id="process">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center max-w-3xl mx-auto mb-20 space-y-4">
+                <h2 class="text-xs font-bold text-brand uppercase tracking-widest">How It Works</h2>
+                <p class="text-4xl font-bold text-neutral-900 tracking-tight">Four Simple Steps to Clean Sanctuary</p>
+                <div class="h-0.5 w-12 bg-brand mx-auto"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 relative">
+                <!-- Line background for md+ screens -->
+                <div class="hidden md:block absolute top-16 left-[12.5%] right-[12.5%] h-0.5 bg-neutral-200 z-0"></div>
+
+                <!-- Step 1 -->
+                <div class="flex flex-col items-center text-center space-y-4 relative z-10">
+                    <div class="w-14 h-14 bg-white text-neutral-950 font-bold border-2 border-neutral-200 rounded-full flex items-center justify-center text-lg shadow-sm">
+                        01
+                    </div>
+                    <h4 class="text-lg font-bold text-neutral-900">Book Easily</h4>
+                    <p class="text-xs text-neutral-500 max-w-xs leading-relaxed font-light">Launch our email request engine or call directly. We establish space metrics and scope out priorities instantly.</p>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="flex flex-col items-center text-center space-y-4 relative z-10">
+                    <div class="w-14 h-14 bg-white text-neutral-950 font-bold border-2 border-neutral-200 rounded-full flex items-center justify-center text-lg shadow-sm">
+                        02
+                    </div>
+                    <h4 class="text-lg font-bold text-neutral-900">Confirm Plan</h4>
+                    <p class="text-xs text-neutral-500 max-w-xs leading-relaxed font-light">Select your scheduling window. We send a direct confirmation detailing dates and scope.</p>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="flex flex-col items-center text-center space-y-4 relative z-10">
+                    <div class="w-14 h-14 bg-white text-neutral-950 font-bold border-2 border-neutral-200 rounded-full flex items-center justify-center text-lg shadow-sm">
+                        03
+                    </div>
+                    <h4 class="text-lg font-bold text-brand">We Clean</h4>
+                    <p class="text-xs text-neutral-500 max-w-xs leading-relaxed font-light">Our trained specialists arrive punctually, equipped with modern supplies to detail your home.</p>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="flex flex-col items-center text-center space-y-4 relative z-10">
+                    <div class="w-14 h-14 bg-brand text-white font-bold border-2 border-brand rounded-full flex items-center justify-center text-lg shadow-sm">
+                        04
+                    </div>
+                    <h4 class="text-lg font-bold text-neutral-900 font-bold">Enjoy Sanctuary</h4>
+                    <p class="text-xs text-neutral-500 max-w-xs leading-relaxed font-light">Walk back into an elegant, naturally fresh environment. Breathe easy and enjoy clean spaces.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-24 bg-white overflow-hidden" id="testimonials">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center max-w-2xl mx-auto mb-16 space-y-4">
+                <h2 class="text-xs font-bold text-brand uppercase tracking-widest">Happy Clients</h2>
+                <p class="text-4xl font-bold text-neutral-900 tracking-tight">Rave Reviews From Miami Residents</p>
+                <div class="h-0.5 w-12 bg-brand mx-auto"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="glass p-8 rounded-3xl border border-neutral-100 flex flex-col justify-between shadow-sm hover:shadow-md transition-shadow">
+                    <div class="space-y-4">
+                        <div class="flex items-center space-x-1 text-brand">
+                            <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                            <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                            <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                            <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                            <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        </div>
+                        <p class="text-sm text-neutral-600 font-light italic leading-relaxed">
+                            "I am satisfied! I am very impressed with how Maria cleaned my condo. I recommend her."
+                        </p>
+                    </div>
+                    <div class="mt-6 flex items-center space-x-3">
+                        <div class="w-9 h-9 bg-neutral-clay rounded-full flex items-center justify-center font-bold text-xs text-neutral-800">
+                            AC
+                        </div>
+                        <span class="text-xs font-bold text-neutral-900">— Adriana Correa</span>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="glass p-8 rounded-3xl border border-neutral-100 flex flex-col justify-between shadow-sm hover:shadow-md transition-shadow">
+                    <div class="space-y-4">
+                        <div class="flex items-center space-x-1 text-brand">
+                            <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                            <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                            <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                            <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                            <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        </div>
+                        <p class="text-sm text-neutral-600 font-light italic leading-relaxed">
+                            "Great service from Maria Cleaning Services. They arrived on time, worked quickly, and did a very thorough job. Everything was left spotless."
+                        </p>
+                    </div>
+                    <div class="mt-6 flex items-center space-x-3">
+                        <div class="w-9 h-9 bg-neutral-clay rounded-full flex items-center justify-center font-bold text-xs text-neutral-800">
+                            CC
+                        </div>
+                        <span class="text-xs font-bold text-neutral-900">— Carlos Castro</span>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="glass p-8 rounded-3xl border border-neutral-100 flex flex-col justify-between shadow-sm hover:shadow-md transition-shadow">
+                    <div class="space-y-4">
+                        <div class="flex items-center space-x-1 text-brand">
+                            <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                            <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                            <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                            <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                            <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        </div>
+                        <p class="text-sm text-neutral-600 font-light italic leading-relaxed">
+                            "Maria exceeded my expectations. Friendly, efficient, and left my home spotless. The bathrooms and kitchen looked amazing. I will definitely book regular cleanings."
+                        </p>
+                    </div>
+                    <div class="mt-6 flex items-center space-x-3">
+                        <div class="w-9 h-9 bg-neutral-clay rounded-full flex items-center justify-center font-bold text-xs text-neutral-800">
+                            A
+                        </div>
+                        <span class="text-xs font-bold text-neutral-900">— Ammy</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-24 bg-neutral-warm border-t border-neutral-100" id="faq">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="text-center mb-16 space-y-4">
+                <h2 class="text-xs font-bold text-brand uppercase tracking-widest">Questions</h2>
+                <p class="text-4xl font-bold text-neutral-900 tracking-tight">Frequently Asked Questions</p>
+                <div class="h-0.5 w-12 bg-brand mx-auto"></div>
+            </div>
+
+            <div class="space-y-4">
+                <!-- Q1 -->
+                <div class="bg-white rounded-2xl border border-neutral-100 overflow-hidden transition-all duration-300">
+                    <button class="w-full text-left p-6 font-bold text-neutral-900 flex justify-between items-center focus:outline-none" onclick="toggleFaq(this)">
+                        <span>Do you bring cleaning supplies?</span>
+                        <svg class="w-5 h-5 text-neutral-400 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </button>
+                    <div class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+                        <p class="p-6 pt-0 text-sm text-neutral-600 font-light leading-relaxed border-t border-neutral-50/50">
+                            Yes, we arrive fully prepared with high-grade equipment and safe, tested cleaning solutions. If you prefer us to utilize specialized custom products on your delicate flooring or furniture, just let us know in advance.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Q2 -->
+                <div class="bg-white rounded-2xl border border-neutral-100 overflow-hidden transition-all duration-300">
+                    <button class="w-full text-left p-6 font-bold text-neutral-900 flex justify-between items-center focus:outline-none" onclick="toggleFaq(this)">
+                        <span>How long does cleaning take?</span>
+                        <svg class="w-5 h-5 text-neutral-400 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </button>
+                    <div class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+                        <p class="p-6 pt-0 text-sm text-neutral-600 font-light leading-relaxed border-t border-neutral-50/50">
+                            Typically, a standard apartment or condo takes between 1.5 to 3.5 hours, while larger single-family homes or deep clean requests can require 4 to 8 hours. Time varies based on square footage and level of cleaning required.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Q3 -->
+                <div class="bg-white rounded-2xl border border-neutral-100 overflow-hidden transition-all duration-300">
+                    <button class="w-full text-left p-6 font-bold text-neutral-900 flex justify-between items-center focus:outline-none" onclick="toggleFaq(this)">
+                        <span>Do I need to be home?</span>
+                        <svg class="w-5 h-5 text-neutral-400 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </button>
+                    <div class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+                        <p class="p-6 pt-0 text-sm text-neutral-600 font-light leading-relaxed border-t border-neutral-50/50">
+                            No, your presence is not required. Many customers prefer to provide digital lock codes or leave keys with luxury condo reception desks. We manage security protocols with total confidentiality.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Q4 -->
+                <div class="bg-white rounded-2xl border border-neutral-100 overflow-hidden transition-all duration-300">
+                    <button class="w-full text-left p-6 font-bold text-neutral-900 flex justify-between items-center focus:outline-none" onclick="toggleFaq(this)">
+                        <span>Do you clean apartments?</span>
+                        <svg class="w-5 h-5 text-neutral-400 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </button>
+                    <div class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+                        <p class="p-6 pt-0 text-sm text-neutral-600 font-light leading-relaxed border-t border-neutral-50/50">
+                            Absolutely. We regularly clean apartments and luxury condominiums in Miami. Our crew is familiar with building entry coordinates, valet parking logistics, and trash chute regulations.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Q5 -->
+                <div class="bg-white rounded-2xl border border-neutral-100 overflow-hidden transition-all duration-300">
+                    <button class="w-full text-left p-6 font-bold text-neutral-900 flex justify-between items-center focus:outline-none" onclick="toggleFaq(this)">
+                        <span>Do you offer recurring cleanings?</span>
+                        <svg class="w-5 h-5 text-neutral-400 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </button>
+                    <div class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+                        <p class="p-6 pt-0 text-sm text-neutral-600 font-light leading-relaxed border-t border-neutral-50/50">
+                            Yes. We provide scheduled weekly, bi-weekly, or monthly programs. Regular client cycles benefit from specialized discounted contract structures to make house care consistently predictable.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action Banner -->
+    <section class="py-24 bg-neutral-950 text-white relative overflow-hidden">
+        <div class="absolute -top-40 -left-40 w-96 h-96 bg-brand/10 rounded-full blur-3xl"></div>
+        <div class="absolute -bottom-40 -right-40 w-96 h-96 bg-brand/10 rounded-full blur-3xl"></div>
+
+        <div class="relative z-10 max-w-5xl mx-auto px-6 text-center space-y-8">
+            <h2 class="text-4xl md:text-5xl font-bold tracking-tight">Your Home Deserves Professional Care</h2>
+            <p class="text-lg text-neutral-400 max-w-2xl mx-auto font-light leading-relaxed">
+                Connect with us today to outline a custom plan. Enjoy the clarity and relaxation of a beautifully clean home.
+            </p>
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
+                <button onclick="openBookingModal()" class="bg-brand hover:bg-brand-dark text-neutral-950 hover:text-white font-bold px-8 py-4 rounded-full transition-all duration-300 shadow-md w-full sm:w-auto">
+                    Book Your Cleaning
+                </button>
+                <a href="tel:+17862629666" class="glass-dark border border-white/10 hover:bg-white hover:text-neutral-950 font-bold px-8 py-4 rounded-full transition-all duration-300 flex items-center justify-center gap-2 w-full sm:w-auto">
+                    <svg class="w-5 h-5 text-brand" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.94.725l.548 2.2a1 1 0 01-.321.988l-1.305.98a10.582 10.582 0 004.872 4.872l.98-1.305a1 1 0 01.988-.321l2.2.548a1 1 0 01.725.94V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+                    Call Now: (786) 262-9666
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Details Section -->
+    <section class="py-24 bg-white" id="contact">
+        <div class="max-w-4xl mx-auto px-6 text-center space-y-12">
+            <div class="space-y-4">
+                <h2 class="text-xs font-bold text-brand uppercase tracking-widest">Connect</h2>
+                <h3 class="text-4xl font-bold text-neutral-900 tracking-tight leading-tight">Get in Touch</h3>
+                <p class="text-base text-neutral-500 max-w-xl mx-auto font-light">We accept phone bookings and dynamic online email bookings. Reach out to schedule your service.</p>
+            </div>
+
+            <!-- Contacts Info Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Phone -->
+                <div class="bg-neutral-clay p-8 rounded-3xl border border-neutral-100 flex flex-col items-center space-y-4 shadow-sm">
+                    <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center text-neutral-750 shadow-sm">
+                        <svg class="w-5 h-5 text-brand" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.94.725l.548 2.2a1 1 0 01-.321.988l-1.305.98a10.582 10.582 0 004.872 4.872l.98-1.305a1 1 0 01.988-.321l2.2.548a1 1 0 01.725.94V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+                    </div>
+                    <div>
+                        <p class="text-xs font-bold text-neutral-400 uppercase tracking-widest">Phone & Text</p>
+                        <a href="tel:+17862629666" class="text-lg font-bold text-neutral-900 hover:text-brand transition-colors">+1 (786) 262-9666</a>
+                    </div>
+                </div>
+
+                <!-- Hours -->
+                <div class="bg-neutral-clay p-8 rounded-3xl border border-neutral-100 flex flex-col items-center space-y-4 shadow-sm">
+                    <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center text-neutral-750 shadow-sm">
+                        <svg class="w-5 h-5 text-brand" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                    </div>
+                    <div>
+                        <p class="text-xs font-bold text-neutral-400 uppercase tracking-widest">Operating Hours</p>
+                        <p class="text-sm font-semibold text-neutral-900">Open Daily: 7 AM — 10 PM</p>
+                    </div>
+                </div>
+
+                <!-- Location -->
+                <div class="bg-neutral-clay p-8 rounded-3xl border border-neutral-100 flex flex-col items-center space-y-4 shadow-sm">
+                    <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center text-neutral-750 shadow-sm">
+                        <svg class="w-5 h-5 text-brand" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                    </div>
+                    <div>
+                        <p class="text-xs font-bold text-neutral-400 uppercase tracking-widest">Service Area</p>
+                        <p class="text-sm font-semibold text-neutral-900">Miami, Florida & Surroundings</p>
+                    </div>
+                </div>
+            </div>
+            
+            <button onclick="openBookingModal()" class="inline-block bg-neutral-900 hover:bg-brand text-white font-bold py-4 px-12 rounded-full transition-all shadow-sm">
+                Open Email Booking Engine
+            </button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-neutral-clay py-16 border-t border-neutral-200 relative z-30 text-neutral-600">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-12">
+            <!-- Col 1: Brand Info -->
+            <div class="space-y-4">
+                <div class="flex items-center space-x-2.5">
+                    <div class="w-8 h-8 bg-brand rounded-full flex items-center justify-center text-white font-bold text-sm shadow-sm">
+                        M
+                    </div>
+                    <span class="font-bold text-md tracking-tight text-neutral-900">Maria's Cleaning</span>
+                </div>
+                <p class="text-xs text-neutral-500 font-light leading-relaxed">
+                    Premium residential cleaning services throughout Miami. Delivering clean spaces through professional care.
+                </p>
+                <p class="text-xs font-semibold text-neutral-800">
+                    Latino-Owned & Operated Family Business
+                </p>
+            </div>
+
+            <!-- Col 2: Services Quick Links -->
+            <div class="space-y-4">
+                <h5 class="text-xs font-bold text-neutral-900 uppercase tracking-widest">Services Offered</h5>
+                <ul class="space-y-2.5 text-xs">
+                    <li><a href="#services" class="hover:text-brand transition-colors">Residential Home Cleaning</a></li>
+                    <li><a href="#services" class="hover:text-brand transition-colors">Comprehensive Deep Cleaning</a></li>
+                    <li><a href="#services" class="hover:text-brand transition-colors">Move-In / Move-Out Cleans</a></li>
+                    <li><a href="#services" class="hover:text-brand transition-colors">Luxury Condo & Apartment Care</a></li>
+                    <li><a href="#services" class="hover:text-brand transition-colors">Kitchen & Bathroom Detailing</a></li>
+                </ul>
+            </div>
+
+            <!-- Col 3: Hours & Support -->
+            <div class="space-y-4">
+                <h5 class="text-xs font-bold text-neutral-900 uppercase tracking-widest">Inquiries</h5>
+                <ul class="space-y-2.5 text-xs">
+                    <li class="flex items-center gap-1.5 font-bold text-neutral-800">
+                        <svg class="w-4 h-4 text-brand" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.94.725l.548 2.2a1 1 0 01-.321.988l-1.305.98a10.582 10.582 0 004.872 4.872l.98-1.305a1 1 0 01.988-.321l2.2.548a1 1 0 01.725.94V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+                        (786) 262-9666
+                    </li>
+                    <li>Open Daily</li>
+                    <li>Closing at 10 PM</li>
+                    <li>Miami, Florida Area</li>
+                </ul>
+            </div>
+
+            <!-- Col 4: Quick Nav -->
+            <div class="space-y-4">
+                <h5 class="text-xs font-bold text-neutral-900 uppercase tracking-widest">Site Directory</h5>
+                <ul class="space-y-2.5 text-xs">
+                    <li><a href="#about" class="hover:text-brand transition-colors">Our Story</a></li>
+                    <li><a href="#why-choose-us" class="hover:text-brand transition-colors">Why Maria's</a></li>
+                    <li><a href="#before-after" class="hover:text-brand transition-colors">Before & After Slider</a></li>
+                    <li><a href="#testimonials" class="hover:text-brand transition-colors">Customer Reviews</a></li>
+                    <li><a href="#faq" class="hover:text-brand transition-colors">Frequently Asked Questions</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-6 mt-12 pt-8 border-t border-neutral-200 flex flex-col sm:flex-row items-center justify-between text-[11px] text-neutral-400">
+            <p>&copy; 2026 Maria's Cleaning Services. All rights reserved. Servicing Miami, FL.</p>
+            <div class="flex space-x-6 mt-4 sm:mt-0">
+                <span class="hover:text-brand transition-colors cursor-pointer">Privacy Policy</span>
+                <span class="hover:text-brand transition-colors cursor-pointer">Terms of Service</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Interactive Scripts for Sliders, Modals, Headers & Drawers -->
+    <script>
+        // Configurable Business Owner Email Address
+        const BUSINESS_OWNER_EMAIL = "mariascleaningservicesmiami@gmail.com";
+
+        // Header Visual Shrink on Scroll
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('main-header');
+            if (window.scrollY > 40) {
+                header.classList.add('py-2');
+                header.classList.remove('py-4');
+            } else {
+                header.classList.add('py-4');
+                header.classList.remove('py-2');
+            }
+        });
+
+        // Mobile Menu Toggle
+        const mobileToggle = document.getElementById('mobile-menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = document.getElementById('menu-icon');
+
+        mobileToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            if (mobileMenu.classList.contains('hidden')) {
+                menuIcon.innerHTML = `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"/>`;
+            } else {
+                menuIcon.innerHTML = `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>`;
+            }
+        });
+
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                menuIcon.innerHTML = `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"/>`;
+            });
+        });
+
+        // Dynamic Service Detail Modal
+        function openServiceModal(title, desc, time, freq, inclusions) {
+            const modal = document.getElementById('service-modal');
+            const content = document.getElementById('modal-content');
+            
+            document.getElementById('modal-title').innerText = title;
+            document.getElementById('modal-desc').innerText = desc;
+            document.getElementById('modal-time').innerText = time;
+            document.getElementById('modal-freq').innerText = freq;
+            document.getElementById('modal-inclusions').innerText = inclusions;
+
+            // Set the Service dropdown default in booking form to match selected card
+            const serviceSelect = document.getElementById('book-service');
+            for (let option of serviceSelect.options) {
+                if (option.text.toLowerCase().includes(title.toLowerCase()) || title.toLowerCase().includes(option.text.toLowerCase())) {
+                    serviceSelect.value = option.value;
+                    break;
+                }
+            }
+
+            modal.classList.remove('hidden');
+            setTimeout(() => {
+                content.classList.remove('scale-95', 'opacity-0');
+                content.classList.add('scale-100', 'opacity-100');
+            }, 20);
+        }
+
+        function closeServiceModal() {
+            const modal = document.getElementById('service-modal');
+            const content = document.getElementById('modal-content');
+            
+            content.classList.remove('scale-100', 'opacity-100');
+            content.classList.add('scale-95', 'opacity-0');
+            
+            setTimeout(() => {
+                modal.classList.add('hidden');
+            }, 300);
+        }
+
+        // Booking Modal Management
+        function openBookingModal() {
+            const modal = document.getElementById('booking-modal');
+            const content = document.getElementById('booking-modal-content');
+            
+            modal.classList.remove('hidden');
+            setTimeout(() => {
+                content.classList.remove('scale-95', 'opacity-0');
+                content.classList.add('scale-100', 'opacity-100');
+            }, 20);
+        }
+
+        function closeBookingModal() {
+            const modal = document.getElementById('booking-modal');
+            const content = document.getElementById('booking-modal-content');
+            
+            content.classList.remove('scale-100', 'opacity-100');
+            content.classList.add('scale-95', 'opacity-0');
+            
+            setTimeout(() => {
+                modal.classList.add('hidden');
+            }, 300);
+        }
+
+        function switchToBookingModal() {
+            closeServiceModal();
+            setTimeout(() => {
+                openBookingModal();
+            }, 350);
+        }
+
+        // Close modal if user clicks backdrop area
+        document.getElementById('service-modal').addEventListener('click', function(e) {
+            if (e.target === this) closeServiceModal();
+        });
+        document.getElementById('booking-modal').addEventListener('click', function(e) {
+            if (e.target === this) closeBookingModal();
+        });
+
+        // Email Form Interception & mailto Draft Generation
+        function handleBookingSubmit(event) {
+            event.preventDefault();
+            
+            const name = document.getElementById('book-name').value;
+            const phone = document.getElementById('book-phone').value;
+            const service = document.getElementById('book-service').value;
+            const sqft = document.getElementById('book-sqft').value;
+            const date = document.getElementById('book-date').value;
+            const notes = document.getElementById('book-notes').value || "None";
+
+            // Constructing standard structured email copy
+            const subject = encodeURIComponent(`New Cleaning Booking Request - ${name}`);
+            const body = encodeURIComponent(
+                `Hello Maria's Cleaning Services,\n\n` +
+                `I would like to request a cleaning service. Here are my details:\n\n` +
+                `• Client Name: ${name}\n` +
+                `• Phone Number: ${phone}\n` +
+                `• Requested Service: ${service}\n` +
+                `• Estimated Square Footage: ${sqft} sq. ft.\n` +
+                `• Preferred Date: ${date}\n` +
+                `• Special Notes / Instructions: ${notes}\n\n` +
+                `Please contact me to finalize and confirm the schedule. Thank you!`
+            );
+
+            // Open structured mailto link using configured destination
+            window.location.href = `mailto:${BUSINESS_OWNER_EMAIL}?subject=${subject}&body=${body}`;
+            
+            // UI Update feedback
+            alert("Perfect! Your email client has been launched with your configured booking draft. Please press send to deliver it directly to Maria's Cleaning Services.");
+            closeBookingModal();
+            document.getElementById('email-booking-form').reset();
+        }
+
+        // Interactive Before / After Slider Logic
+        const range = document.getElementById('slider-range');
+        const beforeImg = document.getElementById('slider-before');
+        const handle = document.getElementById('slider-handle');
+        const btn = document.getElementById('slider-button');
+
+        range.addEventListener('input', (e) => {
+            const val = e.target.value;
+            beforeImg.style.clipPath = `polygon(0 0, ${val}% 0, ${val}% 100%, 0 100%)`;
+            handle.style.left = `${val}%`;
+            btn.style.left = `${val}%`;
+        });
+
+        beforeImg.style.clipPath = `polygon(0 0, 50% 0, 50% 100%, 0 100%)`;
+        handle.style.left = `50%`;
+        btn.style.left = `50%`;
+
+        // FAQ accordion toggle mechanics
+        function toggleFaq(button) {
+            const contentContainer = button.nextElementSibling;
+            const arrowIcon = button.querySelector('svg');
+
+            if (contentContainer.style.maxHeight && contentContainer.style.maxHeight !== '0px') {
+                contentContainer.style.maxHeight = '0px';
+                arrowIcon.classList.remove('rotate-180');
+            } else {
+                contentContainer.style.maxHeight = contentContainer.scrollHeight + 'px';
+                arrowIcon.classList.add('rotate-180');
+            }
+        }
+    </script>
+</body>
+</html>
